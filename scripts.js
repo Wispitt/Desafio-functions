@@ -5,12 +5,18 @@ const points2 = document.querySelector(".point-2")
 let pointsPlayer1 = 0;
 let pointsPlayer2 = 0;
 
+const GAME_OPITIONS = {
+    ROCK: 'rock',
+    PAPER: 'paper',
+    SCISSORS: 'scissors'
+}
+
 const humanClick = (click) => {
     playTheGame(click, plarReturn());
 }
 
 const plarReturn = () => {
-    const options = ["rock", "paper", "scissors"];
+    const options = [GAME_OPITIONS.ROCK, GAME_OPITIONS.PAPER, GAME_OPITIONS.SCISSORS];
     const numberRandom = Math.floor(Math.random() * 3);
     return options[numberRandom];
 }
@@ -22,9 +28,9 @@ const playTheGame = (human, adversary) => {
     if (human === adversary) {
         result.innerHTML = "Empate!";
     } else if (
-        (human === "paper" && adversary === "rock") ||
-        (human === "rock" && adversary === "scissors") ||
-        (human === "scissors" && adversary === "paper"))
+        (human === GAME_OPITIONS.PAPER && adversary === GAME_OPITIONS.ROCK) ||
+        (human === GAME_OPITIONS.ROCK && adversary === GAME_OPITIONS.SCISSORS) ||
+        (human === GAME_OPITIONS.SCISSORS && adversary === GAME_OPITIONS.PAPER))
     {
         result.innerHTML = "Você ganhou!";
         pointsPlayer1 += 10
